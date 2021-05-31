@@ -1,0 +1,7 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='RetroSto-home'),
+    path('about/', views.home, name='RetroSto-about')
+]

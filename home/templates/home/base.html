@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="RetroSto">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/test.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/styles.css'%}">
+
+    {% if title %}
+        <title>RetroSto - {{title}}</title>
+    {% else %}
+        <title>RetroSto</title>
+    {% endif %}
+
+    <!-- Top navigation -->
+	<ul class="nav">
+        <li><img src="/RetroSto/media/logoimage.PNG" alt="RetroStoLogo" id="logo"></li>
+        <li><a class="active"href="/">Home</a></li>
+        <li><a href="/templates/wishlist.html">Wish List</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="/about">About</a></li>
+        <li><div class ="dropdown">
+        <img src="/RetroSto/media/img_avatar.png" alt="Avatar" class="avatar">
+        <div class="dropdown-content">
+            <a href="signin.html">Sign In</a>
+        </li>
+        <li>
+        <input type="search" id="query" name="q" placeholder="Search...">
+        <button id="query">Search</button>
+        </li>
+    </ul>
+
+</head>
+
+<body>
+    {% block content %}{% endblock content %}
+</body>
+
+</html>
