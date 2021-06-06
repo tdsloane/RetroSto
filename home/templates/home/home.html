@@ -1,9 +1,10 @@
-<link href="squares.css" rel="stylesheet" />
 {% extends "home/base.html" %}
+{% load static %}
+    <link rel="stylesheet" type= "text/css" href="{% static 'css/squares.css' %}"/>
 {% block content %}
-<h2>
-<div class="square"></div>
-</h2>
-<h3>
-<div class="square2"></div>
+    <h2>
+    <div class="square"></div>
+    </h2>
+    <h3>
+    <div class="square2"></div>
 {% endblock content %}
