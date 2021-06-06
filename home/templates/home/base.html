@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 
     <meta name="description" content="RetroSto">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'home/test.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/test.css' %}">
     
 
     {% if title %}
@@ -18,25 +19,44 @@
 
     <!-- Top navigation -->
 	<ul class="nav">
-        <li><img src="/RetroSto/media/logoimage.PNG" alt="RetroStoLogo" id="logo"></li>
+        <li><img src="{% static '/images/logoimage.PNG' %}" alt="RetroStoLogo" id="logo"></li>
         <li><a class="active"href="/">Home</a></li>
-        <li><a href="/templates/wishlist.html">Wish List</a></li>
-        <li><a href="categories.html">Categories</a></li>
         <li><a href="/about">About</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Collections</a></li> <!-- Where is this html file?-->
         <li><div class ="dropdown">
-        <img src="/RetroSto/media/img_avatar.png" alt="Avatar" class="avatar">
+            {% if user.is_authenticated %}
+                <img src="{{ user.profile.image.url }}" alt="Avatar" class="avatar">
+            {% else %}
+                <img src="{% static '/images/img_avatar.png' %}" alt="Avatar" class="avatar">
+            {% endif %}
         <div class="dropdown-content">
-            <a href="signin.html">Sign In</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+                <hr>
+                <a href="{% url 'logout' %}">Sign Out</a>
+            {% else %}
+                <a href="{% url 'login' %}">Sign In</a>
+                <hr>
+                <a href="{% url 'register' %}">Sign Up</a>
+            {% endif %}
         </li>
         <li>
-        <input type="search" id="query" name="q" placeholder="Search...">
-        <button id="query">Search</button>
+        <input type="search" id="query" name="q" placeholder="Search..."> <!-- This search needs to function-->
+        <button type="submit" id="query">Search</button>
         </li>
     </ul>
 
 </head>
 
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     {% block content %}{% endblock content %}
 </body>
 
