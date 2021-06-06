@@ -15,8 +15,6 @@ Justin Howard
 
 # Sign in & register error text must be RED
 # Squares not appearing on home page
-# Need a collections html page
-# Sign in and Sign up should be smaller in text
-# For some reason h1 tags are sticking to the left of the screen
+# Sign in and Sign up should be smaller in avatar icon
 # Highlighting does not work in NavBar
-# Text on all pages should be centered
+# Text on all pages should be centered and legiable!!
