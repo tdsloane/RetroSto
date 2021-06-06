@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static '/css/test.css' %}">
     
-
+    
     {% if title %}
         <title>RetroSto - {{title}}</title>
     {% else %}
@@ -20,10 +20,10 @@
     <!-- Top navigation -->
 	<ul class="nav">
         <li><img src="{% static '/images/logoimage.PNG' %}" alt="RetroStoLogo" id="logo"></li>
-        <li><a class="active"href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="#">Games</a></li>
-        <li><a href="#">Collections</a></li> <!-- Where is this html file?-->
+        <li><a class="active"href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'search' %}">Games</a></li>
+        <li><a href="{% url 'collection' %}">Collections</a></li>
         <li><div class ="dropdown">
             {% if user.is_authenticated %}
                 <img src="{{ user.profile.image.url }}" alt="Avatar" class="avatar">

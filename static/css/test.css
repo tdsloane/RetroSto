@@ -2,10 +2,26 @@ html {
   height: 100%;
 }
 body {
+  text-align: center;
   margin:0;
   padding:0;
   font-family: sans-serif;
   background: linear-gradient(#141e30, #243b55);
+}
+
+.form-profile {
+  text-align: center;
+  display: inline-block;
+}
+
+.user-img {
+  border-radius: 70%;
+  justify-content: center;
+}
+
+.title-object {
+  text-align: center;
+  /* margin-left: 70px; */
 }
 
 .login-box {
