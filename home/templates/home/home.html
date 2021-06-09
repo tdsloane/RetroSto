@@ -1,10 +1,37 @@
 {% extends "home/base.html" %}
 {% load static %}
+
     <link rel="stylesheet" type= "text/css" href="{% static 'css/squares.css' %}"/>
-{% block content %}
-   
-<h1>Sto Your Games Here</h1>
-<aside>Welcome To RetroSto</aside>
+    {% block content %}
+<div class="banner">
+     <div class="app-text"> 
+<h1>Sto Your Games From <br>Any Platfrom Here</h1>
+<p>Welcome to RetroSto where anyone can create<br> there dream wishlist for 
+    the games they want.</p>
+    <div class="play-btn">
+        <img src="{% static '/images/Home_ICON5.PNG' %}" width="30"></div>
+        <small><b>LEARN MORE</b></small>
+    </div>
+</div>
+    <div class="app-picture">
+        <img src= "https://www.pngkey.com/png/full/208-2086315_open-icon-game-png.png">
+    </div>
+    <div class="quick-links">
+        <ul>
+            <li><img src="{% static '/images/Home_ICON.JPG' %}" alt="Share Icon" width="20" height="20"><p>SHARE TO</p></li>
+            <li><img src="{% static '/images/Home_ICON3.PNG' %}"alt="News Icon" width="20"><p>RECENT NEWS</p></li>
+            <li><img src="{% static '/images/Home_ICON4.PNG' %}"alt="Profile Icon" width="20"><p>PROFILE</p></li>
+            <li><img src="{% static '/images/Home_ICON2.PNG' %}"alt="Release Icon" width="20"><p>NEW RELEASES</p></li>
+        </ul>
+    </div>
+    <div class="social-icons">
+        <ul>
+            <li><a href="#"><img src="{% static '/images/FaceBook_Icon.PNG' %}" width="40"></a></li>
+            <li><a href="#"><img src="{% static '/images/Insta_Icon.PNG' %}"width="40"></a></li>
+            <li><a href="#"><img src="{% static '/images/Twitt_Icon.PNG' %}"width="40"></a></li>
+        </ul>
+    </div>
+    
     <h2>
     <div class="square"></div>
     </h2>

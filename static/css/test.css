@@ -1,6 +1,82 @@
 html {
   height: 100%;
 }
+.banner {
+  width: 80%;
+  height: 70%;
+  top: 25%;
+  left: 130px;
+  position: absolute;
+  color: #fff;
+}
+.app-text {
+  width: 50%;
+  float: left;
+}
+.app-text h1 {
+  font-size: 43px;
+  width: 640px;
+  position: relative;
+  margin-left: 40px;
+}
+.app-text p {
+  width: 650px;
+  font-size: 15px;
+  margin: 30px 0 30px 40px;
+  line-height: 25px;
+  color: #919191;
+}
+.app-picture {
+  width: 50%;
+  float: right;
+}
+.app-picture img {
+  width: 80%;
+  margin-top: 50px;
+  padding-left: 50px;
+}
+.play-btn{
+  margin-left: 40px;
+  display: inline-flex;
+}
+small{
+  margin: auto 5px;
+  cursor: pointer;
+  font-size: 12px;
+  color:rgb(209, 129, 9);
+  letter-spacing: 3px;
+}
+.quick-links{
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(to right, #e49012ec, #646469);
+}
+.quick-links ul{
+  display:inline-flex;
+  margin: 30px auto;
+  text-align: center;
+}
+.quick-links ul li{
+  list-style: none;
+  margin: 0 50px;
+  cursor: pointer;
+}
+.quick-links ul li p{
+  margin-top: 15px;
+  font-size: 10px;
+  color: #fff;
+}
+.social-icons{
+  right: 45px;
+  bottom: 0px;
+  position:absolute;
+}
+.social-icons ul li{
+  list-style: none;
+  margin-top: 0px;
+  text-align:center;
+}
 body {
   text-align: center;
   margin:0;
