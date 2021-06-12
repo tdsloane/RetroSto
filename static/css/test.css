@@ -158,10 +158,62 @@ legend
 .requiredField{
   color:#999;
 }
+#error_1_id_username.invalid-feedback{
+  font-size: 10px;
+  color:rgb(211, 5, 5);
+}
+#error_1_id_password2.invalid-feedback{
+  font-size: 10px;
+  color:rgb(211, 5, 5);
+}
+#error_2_id_password2.invalid-feedback{
+  font-size: 10px;
+  color:rgb(211, 5, 5);
+}
+.sign-up-box{
+  padding: 10px;
+  position:  relative;
+  left: -30px;
+  top: 150px;
+  height: 250px;
+  width: 30%;
+  margin: auto;
+}
+.sign-btn2{
+  
+  position:  relative;
+  top: 150px;
+  box-shadow: none;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 20px;
+  background-image: linear-gradient(#243b55,rgb(243, 122, 22));
+  margin-top: 10px;
+}
+.have-account{
+  position:  relative;
+  top: 150px;
+}
+.sign-in-link{
+  color:rgb(255, 255, 255)
+}
+#text{
+  color:rgb(255, 255, 255);
+}
+
+.form-text {
+  display: none;
+    white-space: nowrap;
+    overflow: hidden;
+  color:rgb(243, 122, 22);
+}
 /*--Account Sign-In, User/Pass Text End--*/
 .form-profile {
   text-align: center;
   display: inline-block;
+  position: relative;
+  top: 35px;
+  right: -25px;
 }
 
 .user-img {
@@ -367,9 +419,6 @@ legend
 }
 
 
-
-
-
 #query{
 	float: right;
 	padding: 5px;
@@ -508,4 +557,19 @@ legend
               0 0 25px #03e9f4,
               0 0 50px #03e9f4,
               0 0 100px #03e9f4;
+}
+.user-img{
+  position: relative;
+  top: 35px;
+  width: 150px;
+}
+.title-object{
+ position: relative;
+ left: 35px;
+ top:35px;
+ color: #999;
+}
+.btn-sign-btn{
+  position: relative;
+  top: 10px;
 }

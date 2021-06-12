@@ -2,20 +2,22 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div>
+        <div class="sign-up-form">
         <form method="POST">
             {% csrf_token %}
-            <fieldset>
+            <fieldset class="sign-up-box">
                 <legend>Join Today!</legend>
                 {{ form|crispy }}
             </fieldset>
             <div>
-                <button type="submit">Sign Up!</button>
+                <button type="submit"class="sign-btn2">Sign Up!</button>
             </div>
         </form>
         <div>
-            <small>
-                Already Have An Account? <a href="{% url 'login' %}">Sign In</a>
+            <small class="have-account">
+                Already Have An Account? <a href="{% url 'login' %}"class="sign-in-link">Sign In</a>
             </small>
         </div>
     </div>
+</div>
 {% endblock content %}
