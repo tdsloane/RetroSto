@@ -11,7 +11,7 @@ def collection(request):
         'games': Game.objects.all()
     }
     return render(request, 'catolog/collection.html', context)
-
+# tom
 
 exp_time = False
 def search(request):
