@@ -77,4 +77,4 @@ def search_query(user_input, exp_time):
             all_games[key] = result
             key += 1
 
-    return str(all_games)
+    return all_games[0:]
