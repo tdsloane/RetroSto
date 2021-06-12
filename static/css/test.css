@@ -366,7 +366,13 @@ legend
     
 }
 
-
+.search-bar {
+  max-width: 500px;
+  width: 100%;
+  align-self: center;
+  margin-top: small;
+  margin-right: 20%;
+}
 
 
 
@@ -378,6 +384,17 @@ legend
 	margin-top: 20px;
 	margin-right: 10px;
 }
+
+#queryb{
+	float: center;
+	padding: 5px;
+	display: inline;
+	margin: 1px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+
+
 #logo {
   float: left;
   border: 1px solid #ddd;

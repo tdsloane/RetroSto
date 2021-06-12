@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'catolog.apps.CatologConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
