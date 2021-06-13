@@ -1,7 +1,3 @@
-from django.http import response
-from django.http.response import HttpResponseRedirect
-from django.views.generic.detail import DetailView
-from django.http import HttpResponse
 from igdb.wrapper import IGDBWrapper
 from catolog.models import Game
 from django.shortcuts import render
@@ -55,7 +51,7 @@ def search(request):
         # Query the API based on a search term.
         query = wrapper.api_request(
                     'games', # Requesting the name, storyline, genre name, and cover art url where the user input is the search tearm
-                    f'fields name, storyline, genres.slug, cover.url; offset 0; where name="{user_input}"*; sort first_release_date; limit: 100;',
+                    f'fields name, storyline, genres.slug, cover.url; offset 0; where name=*"{user_input}"*; sort first_release_date; limit: 100;',
                                 # Also sorted by release date with a limit of 100 results
                     )
         # Load the binary data into json
