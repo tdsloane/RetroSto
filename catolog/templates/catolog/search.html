@@ -2,4 +2,29 @@
 
 {% block content %}
     <h1>Search for a game!</h1>
+    <div class="search-bar">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="form-control" name="q" value="user_input" id="id_q" placeholder="Search...">
+        </form>
+    </div>
+    <br>
+    <div>
+        {% if q == "submit" $}
+            {% for game in all_games %}
+                <fieldset>
+                    {% for id in game %}
+                        <h1>{{ game[id] }}</h1>
+                    {% endfor %
+                </fieldset>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock content %}
+
+
+
+
+<button type="submit" id="querya">Search</button>
+        <input type="search" id="querya" name="q" placeholder="Search..."> <!-- This search needs to function-->
