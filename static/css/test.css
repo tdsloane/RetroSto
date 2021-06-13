@@ -338,11 +338,11 @@ legend
     margin:0;
     padding:0;
     text-align: center;
-	background: rgba(0,0,0,.5);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-	font-size: 40px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    font-size: 40px;
 }
 
 .nav li {
@@ -426,16 +426,18 @@ legend
             display: none;
             position: relative;
 			
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 
-                0px rgba(0, 0, 0, 0.2);
+            background-color: #21344d;
+            min-width: 90px;
+            max-height: 60rem;
+            box-shadow: 0px 32px 64px 
+                0px rgba(223, 166, 10, 0.692);
             z-index: 100;
 			
         }
   
         .dropdown-content a {
-            color: black;
+            color: rgb(211, 162, 58);
+            font-weight: bold;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -446,7 +448,7 @@ legend
         }
   
         .dropdown:hover .dropdown-content {
-            display: inline-block;
+            display: inline-flex;
 			
         }
 		
@@ -540,4 +542,14 @@ legend
 
 body{
   color: #ddd;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+   flex: 0 1 24%;
 }

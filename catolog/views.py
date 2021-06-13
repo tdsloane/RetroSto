@@ -82,7 +82,7 @@ def search(request):
                         for i in genre_list:
                             genre_list = [x for x in genre_list if not isinstance(x, int)]
             else:
-                print("Failed Check Three")
+                print("Failed Genre Check")
                 pass
             # Group together by game
             if game.get('cover') != None:

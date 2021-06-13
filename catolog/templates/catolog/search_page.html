@@ -4,7 +4,12 @@
 {% block content %}
     <h1>Search for a game!</h1>
     <div class="search-bar" id="searchDiv">
-        <form action="{% url 'search' %}" method="POST" id="searchForm" style="background-color: aqua;" >
+        <form action="{% url 'search' %}" method="POST" id="searchForm" style="left: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 20px;
+        z-index: 100;" >
             {% csrf_token %}
             <input type="text" formaction="{% url 'search' %}" name="user_input" id="id_q" placeholder="Search..." >
             <!-- <button formaction="{% url 'search' %}">Sumbit</button> -->
@@ -12,20 +17,23 @@
     </div>
     <div>
         {% for key, game in group_games.items %}
-            <fieldset>
+            <fieldset class="card" style="width: 50%; margin: auto;">
                 <ul>
-                    <ul>{{ game.name }}</ul>
+                    <img src="{{ game.cover_url }}" alt="Cover Art" style="size: 100%; box-shadow: rgba(235, 195, 85, 0.692);">
                     <br>
-                    <ul>{{ game.cover_url }}</ul>
+                        <ul style="text-align: center">{{ game.name }}</ul>
+                    <br> 
+                    {% if game.summary != None %}   
+                        <ul>{{ game.summary }}</ul>
                     <br>
-                    <ul>{{ game.storyline }}</ul>
+                    {% endif %}
+                    {% if game.storyline != None %}
+                        <ul>{{ game.storyline }}</ul>
+                    {% endif %}
                     <br>
-                    <ul>{{ game.summary }}</ul>
-                    <br>
-                    <ul>{{ game.genres }}</ul>
+                        <ul>{{ game.genres }}</ul>
                 </ul>
             </fieldset>
         {% endfor %}
     </div>
-    <p>Test</p>
 {% endblock content %}
