@@ -21,8 +21,10 @@
         {% for key, game in group_games.items %}
             <fieldset class="card" style="width: 40%; margin: auto; background-color: rgba(255, 187, 0, 0.692); color: black; border-radius: 25px; padding: 10px">
                 <ul>
-                    <img src="{{ game.cover_url }}" alt="Cover Art" style="width: 200px; height: 280px;">
+                    {% if game.cover_url %}
+                        <img src="{{ game.cover_url }}" alt="Cover Art" style="width: 200px; height: 280px;">
                     <br>
+                    {% endif %}
                         <ul style="text-align: center; font-weight: bold;">{{ game.name }}</ul>
                     <br> 
                     {% if game.summary != None %}   
