@@ -396,6 +396,7 @@ legend
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
 	font-size: 40px;
+  
 }
 
 .nav li {
@@ -470,8 +471,9 @@ legend
   
 .dropdown-content {
   display: none;
-  position: relative;
-
+  position: absolute;
+  left: -180px;
+  top: 15px;
   background-color: #21344d;
   min-width: 90px;
   max-height: 60rem;
