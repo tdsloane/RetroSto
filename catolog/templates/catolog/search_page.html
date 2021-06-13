@@ -1,0 +1,31 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Search for a game!</h1>
+    <div class="search-bar" id="searchDiv">
+        <form action="{% url 'search' %}" method="POST" id="searchForm" style="background-color: aqua;" >
+            {% csrf_token %}
+            <input type="text" formaction="{% url 'search' %}" name="user_input" id="id_q" placeholder="Search..." >
+            <!-- <button formaction="{% url 'search' %}">Sumbit</button> -->
+        </form>
+    </div>
+    <div>
+        {% for key, game in group_games.items %}
+            <fieldset>
+                <ul>
+                    <ul>{{ game.name }}</ul>
+                    <br>
+                    <ul>{{ game.cover_url }}</ul>
+                    <br>
+                    <ul>{{ game.storyline }}</ul>
+                    <br>
+                    <ul>{{ game.summary }}</ul>
+                    <br>
+                    <ul>{{ game.genres }}</ul>
+                </ul>
+            </fieldset>
+        {% endfor %}
+    </div>
+    <p>Test</p>
+{% endblock content %}

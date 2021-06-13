@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from catolog import views
 from users import views as user_views
 from catolog.views import GameListView, SearchView
 from django.contrib.auth import views as auth_views
 from django.conf import settings
+from catolog.views import search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +30,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name="users/signOut.html"), name='logout'),
     path('profile/', user_views.profile, name='profile'),
     path('collection/', GameListView.as_view(), name='collection'),
-    path('search/', SearchView.as_view(), name="search"),
+    path('search_page/', SearchView.as_view(), name="search_page"),
+    path('search/', search, name="search"),
 ]
 
 

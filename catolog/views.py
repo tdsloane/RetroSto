@@ -1,3 +1,5 @@
+from django.http import response
+from django.http.response import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from igdb.wrapper import IGDBWrapper
@@ -19,15 +21,20 @@ def collection(request):
 
 
 def search(request):
-    if request.method == 'post':
+    er = {
+        'error': "The Search Did not function.",
+        'error2': "Passed by First Section"
+        }
+
+    if request.method == 'POST':
         user_input = request.POST.get('user_input')
         # user_input = SearchView(request.GET)
         # Generate token if needed
         if exp_time <=1 or exp_time == False:
             def generate_token(exp_time):
-                payload = {'client_id': 'q6fao4mb1sojmg7bufkm5zjowskrq4', 'client_secret': 'ak6ruiye2hh7bgun4g12rwj3v0maul'}
+
                 # Grab the OAuth binary and convert to json
-                token_gen = requests.post(f"https://id.twitch.tv/oauth2/token{payload}")  
+                token_gen = requests.post("https://id.twitch.tv/oauth2/token?client_id=q6fao4mb1sojmg7bufkm5zjowskrq4&client_secret=ak6ruiye2hh7bgun4g12rwj3v0maul&grant_type=client_credentials")  
                 token_json = token_gen.json()
 
                 # separate the token and expiration time of the token.
@@ -38,7 +45,8 @@ def search(request):
                 return token, exp_time
             generate_token(exp_time)
         else:
-            pass
+            print("Failed Check 1")
+            return render(request,"catolog/search_page.html", er)
 
         #establish client_id for wrapper
         client_id = "q6fao4mb1sojmg7bufkm5zjowskrq4"
@@ -52,10 +60,10 @@ def search(request):
                     )
         # Load the binary data into json
         message_json = json.loads(query)
-        
+        print("json get!")
         # List of all games returned
-        global all_games
-        all_games = dict()
+        global group_games
+        group_games = dict()
         key = 0
 
         # Grab each value by key and separate per game
@@ -74,23 +82,37 @@ def search(request):
                         for i in genre_list:
                             genre_list = [x for x in genre_list if not isinstance(x, int)]
             else:
+                print("Failed Check Three")
                 pass
             # Group together by game
             if game.get('cover') != None:
-                result = [name,cover_url.get('url'),storyline,summary,genre_list]
+                result = {
+                    'name': name,
+                    'cover_url': cover_url.get('url'),
+                    'storyline': storyline,
+                    'summary': summary,
+                    'genres': genre_list
+                    }
                 # Add the game to the collection of all games found
-                all_games[key] = result
+                group_games[key] = result
                 key += 1
             else: 
-                result = [name,storyline,summary,genre_list]
+                result = {
+                    'name': name,
+                    'storyline': storyline,
+                    'summary': summary,
+                    'genres': genre_list
+                    }
                 # Add the game to the collection of all games found
-                all_games[key] = result
+                group_games[key] = result
                 key += 1
 
-        return render(request, {'all_games': all_games})
+        
+        return render(request, "catolog/search_page.html", {'group_games': group_games}) 
     else:
-        error = "I'm Sorry, your search cannot be completed at this time."
-
+        print("Failed Check Two")
+        er = {'error': "The Search Did not function."}
+        return render(request,"catolog/search_page.html", er) 
 
     
 
@@ -101,8 +123,10 @@ class GameListView(ListView):
 
 class SearchView(ListView):
     model = Game
-    template_name = 'catolog/search.html'
+    template_name = 'catolog/search_page.html'
     context_object_name = 'user_input'
     
     
-
+# class ImageViewer(group_games):
+#     for i in group_games:
+#         img = group_games[i].cover_url

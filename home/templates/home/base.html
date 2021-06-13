@@ -22,7 +22,7 @@
         <li><img src="{% static '/images/LogoFirstBanner3.PNG' %}" alt="RetroStoLogo" id="logo"></li>
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'search' %}">Search</a></li>
+        <li><a href="{% url 'search_page' %}">Search</a></li>
         <li><a href="{% url 'collection' %}">My Collections</a></li>
         <li><div class ="dropdown">
             {% if user.is_authenticated %}
@@ -48,8 +48,7 @@
     </ul>
 
 </head>
-
-<body>
+<h2>
     {% if messages %}
         {% for message in messages %}
             <div>
@@ -58,6 +57,6 @@
         {% endfor %}
     {% endif %}
     {% block content %}{% endblock content %}
-</body>
+</h2>
 
 </html>
