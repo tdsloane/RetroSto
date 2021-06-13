@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="RetroSto">
-
+    
     <link rel="stylesheet" type="text/css" href="{% static '/css/test.css' %}">
     
     
@@ -22,8 +22,8 @@
         <li><img src="{% static '/images/LogoFirstBanner3.PNG' %}" alt="RetroStoLogo" id="logo"></li>
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'search' %}">Games</a></li>
-        <li><a href="{% url 'collection' %}">Collections</a></li>
+        <li><a href="{% url 'search_page' %}">Search</a></li>
+        <li><a href="{% url 'collection' %}">My Collections</a></li>
         <li><div class ="dropdown">
             {% if user.is_authenticated %}
                 <img src="{{ user.profile.image.url }}" alt="Avatar" class="avatar">
@@ -32,13 +32,13 @@
             {% endif %}
         <div class="dropdown-content">
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">Profile</a>
+                <a style="font-size: medium;" href="{% url 'profile' %}">Profile</a>
                 <hr>
-                <a href="{% url 'logout' %}">Sign Out</a>
+                <a style="font-size: medium;" href="{% url 'logout' %}">Sign Out</a>
             {% else %}
-                <a href="{% url 'login' %}">Sign In</a>
+                <a style="font-size: medium;" href="{% url 'login' %}">Sign In</a>
                 <hr>
-                <a href="{% url 'register' %}">Sign Up</a>
+                <a style="font-size: medium;" href="{% url 'register' %}">Sign Up</a>
             {% endif %}
         </li>
         <li>
@@ -48,8 +48,7 @@
     </ul>
 
 </head>
-
-<body>
+<h2>
     {% if messages %}
         {% for message in messages %}
             <div>
@@ -58,6 +57,6 @@
         {% endfor %}
     {% endif %}
     {% block content %}{% endblock content %}
-</body>
+</h2>
 
 </html>

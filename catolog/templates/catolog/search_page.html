@@ -1,0 +1,44 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Search for a game!</h1>
+    <div class="search-bar" id="searchDiv">
+        <form action="{% url 'search' %}" method="POST" id="searchForm" style="left: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 20px;
+        z-index: 100;" >
+            {% csrf_token %}
+            <input type="text" formaction="{% url 'search' %}" name="user_input" id="id_q" placeholder="Search..." >
+            <!-- <button formaction="{% url 'search' %}">Sumbit</button> -->
+        </form>
+    </div>
+    <div>
+        <br>
+        <br>
+        {% for key, game in group_games.items %}
+            <fieldset class="card" style="width: 40%; margin: auto; background-color: rgba(255, 187, 0, 0.692); color: black; border-radius: 25px; padding: 10px">
+                <ul>
+                    <img src="{{ game.cover_url }}" alt="Cover Art" style="width: 200px; height: 280px;">
+                    <br>
+                        <ul style="text-align: center; font-weight: bold;">{{ game.name }}</ul>
+                    <br> 
+                    {% if game.summary != None %}   
+                        <ul>{{ game.summary }}</ul>
+                    <br>
+                    {% endif %}
+                    {% if game.storyline != None %}
+                        <ul>{{ game.storyline }}</ul>
+                    {% endif %}
+                    <br>
+                    <fieldset style="border-color: black;">
+                        <legend style="color: black; font-weight: bolder;">Genres:</legend>
+                        <ul style="font-weight: bolder; align-items: center;">{{ game.genres }}</ul>
+                    </fieldset>
+                </ul>
+            </fieldset>
+        {% endfor %}
+    </div>
+{% endblock content %}
