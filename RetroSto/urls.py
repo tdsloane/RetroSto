@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from users import views as user_views
-from catolog.views import GameListView, SearchView, save
+from catolog.views import GameListView, SearchView, save, search
 from django.contrib.auth import views as auth_views
 from django.conf import settings
-from catolog.views import search, collection
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

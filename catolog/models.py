@@ -15,12 +15,12 @@ class Game(models.Model):
 
        
 class Collection(models.Model):
-    from .views import save
-    collector = models.ForeignKey(User, on_delete=models.CASCADE)
-    colletion = models.ManyToOneRel(save.game_data, null=True, blank=True)
+    # from .views import save
+    # collector = models.ForeignKey(User, on_delete=models.CASCADE)
+    # colletion = models.ManyToOneRel(save, null=True, blank=True)
     
-    def __str__(self):
-        return self.name 
+    # def __str__(self):
+    #     return self.name 
     pass
 
 
