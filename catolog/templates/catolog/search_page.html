@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-    <h1>Search for a game!</h1>
+<link rel="stylesheet" type="text/css" href="{% static '/css/button.css' %}">
+    <h2>Search for a game!</h2>
     <div class="search-bar" id="searchDiv">
         <form action="{% url 'search' %}" method="POST" id="searchForm" style="left: 0;
         position: absolute;
@@ -40,7 +41,10 @@
                         <ul style="font-weight: bolder; align-items: center;">{{ game.genres }}</ul>
                     </fieldset>
                 </ul>
+                <button class="name noselect">Wishlist It</button>
+                  
             </fieldset>
         {% endfor %}
+        
     </div>
 {% endblock content %}
