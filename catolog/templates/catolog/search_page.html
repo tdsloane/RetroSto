@@ -28,23 +28,19 @@
                     {% endif %}
                         <ul style="text-align: center; font-weight: bold;">{{ game.name }}</ul>
                     <br> 
-                    {% if game.summary != None %}   
-                        <ul>{{ game.summary }}</ul>
-                    <br>
-                    {% endif %}
-                    {% if game.storyline != None %}
-                        <ul>{{ game.storyline }}</ul>
-                    {% endif %}
+                    {% block content %}
+                    {% endblock content %}
                     <br>
                     <fieldset style="border-color: black;">
                         <legend style="color: black; font-weight: bolder;">Genres:</legend>
                         <ul style="font-weight: bolder; align-items: center;">{{ game.genres }}</ul>
                     </fieldset>
                 </ul>
-                <button class="name noselect">Wishlist It</button>
-                  
+                <form action="{% url 'saveGame' %}" method="POST">
+                    { counter.increment }
+                    <button class="name noselect" type="submit" id="wishlistBtn">Wishlist It</button>
+                </form>
             </fieldset>
-        {% endfor %}
-        
+        {% endfor %}>
     </div>
 {% endblock content %}

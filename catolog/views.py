@@ -1,18 +1,19 @@
 from igdb.wrapper import IGDBWrapper
+from django.views.generic import ListView
 from catolog.models import Game
 from django.shortcuts import render
-from django.views.generic import ListView
 import json
 import requests
 
 exp_time = False
 
 # Create your views here.
-def collection(request):
-    context = {
-        'games': Game.objects.all()
-    }
-    return render(request, 'catolog/collection.html', context)
+def save(request, message_json):
+    from catolog.models import Counter
+    # Must point to obj index from results on page
+    game_data = message_json[Counter.get_value]
+    game_data.save()
+    return render(request, 'catolog/search_page.html')
 
 
 
@@ -62,6 +63,7 @@ def search(request):
         group_games = dict()
         key = 0
 
+
         # Grab each value by key and separate per game
         for game in message_json:
             name = game.get('name')
@@ -102,7 +104,7 @@ def search(request):
                 # Add the game to the collection of all games found
                 group_games[key] = result
                 key += 1
-
+                
         
         return render(request, "catolog/search_page.html", {'group_games': group_games}) 
     else:
@@ -110,7 +112,11 @@ def search(request):
         er = {'error': "The Search Did not function."}
         return render(request,"catolog/search_page.html", er) 
 
-    
+
+def game_detail(request, id):
+    game = Game.objects.get(id = id)
+    return render(request, 'catolog/game_detail.html', {'game': game})
+
 
 class GameListView(ListView):
     model = Game
@@ -121,8 +127,3 @@ class SearchView(ListView):
     model = Game
     template_name = 'catolog/search_page.html'
     context_object_name = 'user_input'
-    
-    
-# class ImageViewer(group_games):
-#     for i in group_games:
-#         img = group_games[i].cover_url

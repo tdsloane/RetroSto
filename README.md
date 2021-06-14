@@ -13,8 +13,24 @@ Justin Howard
     FBI's Most Wanted Bugs List
 ####################################
 
-# Sign in & register error text must be RED
-# Squares not appearing on home page
-# Sign in and Sign up should be smaller in avatar icon
-# Highlighting does not work in NavBar
-# Text on all pages should be centered and legiable!!
+# Bugs
+    # Search results are very case sensisitve
+    # Empty Genre appears as closed brackets []
+# CSS/HTML
+
+# Need to save game data by colletion
+    # Database fields
+    # save game from wishlist button by index
+# Need to save colletion by user
+    # load collection data to collection.html
+
+# --------------------------------
+# Add to database general process
+# --------------------------------
+    # User Searches API ✓
+    # Button to obtain particular game to add to collection ✓
+        -- This would be obtained from some kind of id given to game ✗
+    # Assign obtained values to model fields ✗
+    # Implement code for basic CRUD operations ✗
+    # Finished
+    

@@ -1,0 +1,11 @@
+{% extends "catolog/search_page.html" %}
+{% load static %}
+{% block content %}
+    {% if game.summary != None %}   
+        <ul>{{ game.summary }}</ul>
+        <br>
+    {% endif %}
+    {% if game.storyline != None %}
+        <ul>{{ game.storyline }}</ul>
+    {% endif %}
+{% endblock content %}
