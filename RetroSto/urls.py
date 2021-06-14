@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from users import views as user_views
-from catolog.views import GameListView, SearchView
+from catolog.views import GameListView, SearchView, save, search
 from django.contrib.auth import views as auth_views
 from django.conf import settings
-from catolog.views import search
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +32,7 @@ urlpatterns = [
     path('collection/', GameListView.as_view(), name='collection'),
     path('search_page/', SearchView.as_view(), name="search_page"),
     path('search/', search, name="search"),
+    path('saveGame', save, name='saveGame')
 ]
 
 

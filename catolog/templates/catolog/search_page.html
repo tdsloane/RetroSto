@@ -30,7 +30,7 @@
                     <br> 
                     {% if game.summary != None %}   
                         <ul>{{ game.summary }}</ul>
-                    <br>
+                        <br>
                     {% endif %}
                     {% if game.storyline != None %}
                         <ul>{{ game.storyline }}</ul>
@@ -41,10 +41,10 @@
                         <ul style="font-weight: bolder; align-items: center;">{{ game.genres }}</ul>
                     </fieldset>
                 </ul>
-                <button class="name noselect">Wishlist It</button>
-                  
+                <form action="{% url 'saveGame' %}" method="POST">
+                    <button class="name noselect" type="submit" id="wishlistBtn">Wishlist It</button>
+                </form>
             </fieldset>
         {% endfor %}
-        
     </div>
 {% endblock content %}
